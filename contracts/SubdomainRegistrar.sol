@@ -27,7 +27,7 @@ contract SubdomainRegistrar {
         bytes32 _parentNode, 
         uint256 _registrationFee, 
         address _feeRecipient
-    ) {
+    ) payable  {
         // nameWrapper = INameWrapper(_nameWrapper);
         resolver = _resolver;
         parentNode = _parentNode;

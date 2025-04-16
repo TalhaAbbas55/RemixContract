@@ -28,7 +28,7 @@
 						"type": "address"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "constructor"
 			},
 			{
@@ -201,11 +201,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0x07a7a0e5141f0861bc217ed1123497443c9adbd2dbde0385434f278d8de13bdf",
+			"keccak256": "0x8c6a751eb94c6a101f2ff2d135b85aae092900e493e448b055f5aca0f700976d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e2f8ca81c79ce509c753556053cc112e50561ce78f71f021e9ff26686bae181c",
-				"dweb:/ipfs/Qma8QzXNiz4nYj1S9qsdMnok3ASmpqBRHtfeopuMWyvmkr"
+				"bzz-raw://f20ac1a52a51f15e1213ce4149f1c7ccc40e498ba5062cf93398b029369b7f2a",
+				"dweb:/ipfs/QmVGuLhKYfA4mD8GYgsFCBagty8KfiBuSSfaHGjpSbJqpr"
 			]
 		}
 	},

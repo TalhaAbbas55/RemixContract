@@ -1,0 +1,153 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"setApprovalForAll(address,bool)": "a22cb465",
+			"setSubnodeOwner(bytes32,string,address,uint32,uint64)": "c658e086",
+			"setSubnodeRecord(bytes32,string,address,address,uint64,uint32,uint64)": "24c1af44"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "approved",
+					"type": "bool"
+				}
+			],
+			"name": "setApprovalForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "parentNode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "string",
+					"name": "label",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"internalType": "uint32",
+					"name": "fuses",
+					"type": "uint32"
+				},
+				{
+					"internalType": "uint64",
+					"name": "expiry",
+					"type": "uint64"
+				}
+			],
+			"name": "setSubnodeOwner",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "parentNode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "string",
+					"name": "label",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "resolver",
+					"type": "address"
+				},
+				{
+					"internalType": "uint64",
+					"name": "ttl",
+					"type": "uint64"
+				},
+				{
+					"internalType": "uint32",
+					"name": "fuses",
+					"type": "uint32"
+				},
+				{
+					"internalType": "uint64",
+					"name": "expiry",
+					"type": "uint64"
+				}
+			],
+			"name": "setSubnodeRecord",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

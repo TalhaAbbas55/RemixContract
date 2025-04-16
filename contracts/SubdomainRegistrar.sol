@@ -1,34 +1,32 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.29;
+pragma solidity ^0.8.0;
 
+interface INameWrapper {
+    function setSubnodeOwner(bytes32 parentNode, string calldata label, address owner, uint32 fuses, uint64 expiry) external;
+    function setSubnodeRecord(bytes32 parentNode, string calldata label, address owner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) external;
+    function setApprovalForAll(address operator, bool approved) external;
+}
 
-// interface INameWrapper {
-//     function setSubnodeOwner(bytes32 parentNode, string calldata label, address owner, uint32 fuses, uint64 expiry) external;
-//     function setSubnodeRecord(bytes32 parentNode, string calldata label, address owner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) external;
-//     function setApprovalForAll(address operator, bool approved) external;
-// }
+interface IERC20 {
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+}
 
 contract SubdomainRegistrar {
-    // Placeholder for real ENS interaction
-    // INameWrapper public nameWrapper;
+    INameWrapper public nameWrapper;
     address public resolver;
+
     uint256 public registrationFee;
     address public feeRecipient;
+
     address private owner;
+
     bytes32 private parentNode;
 
-    event RegisterCalled(string message);
-    event DebugInfo(string label, address sender, uint256 fee);
-    event FeeTransferred(address from, address to, uint256 amount);
+    event LogPaymentDetails(uint256 msgValue, uint256 registrationFee);
 
-    constructor(
-        // address _nameWrapper, 
-        address _resolver, 
-        bytes32 _parentNode, 
-        uint256 _registrationFee, 
-        address _feeRecipient
-    ) payable  {
-        // nameWrapper = INameWrapper(_nameWrapper);
+    event SubdomainRegistered(bytes32 indexed parentNode, string label, address indexed owner);
+    constructor(address _nameWrapper, address _resolver, bytes32 _parentNode, uint256 _registrationFee, address _feeRecipient) payable  {
+        nameWrapper = INameWrapper(_nameWrapper);
         resolver = _resolver;
         parentNode = _parentNode;
         registrationFee = _registrationFee;
@@ -36,23 +34,28 @@ contract SubdomainRegistrar {
         owner = msg.sender;
     }
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not owner");
+    modifier onlyOwner (){
+        require (msg.sender == owner, "Not owner");
         _;
     }
 
+
     function register(string calldata label) external payable {
-        emit DebugInfo(label, msg.sender, msg.value);
+    emit LogPaymentDetails(msg.value, registrationFee); // 👈 added
 
-        require(msg.value >= registrationFee, "Insufficient registration fee");
+    // require(msg.value >= registrationFee, "Insufficient registration fee");
 
-        // Send ETH to feeRecipient
+    // if (registrationFee > 0) {
         payable(feeRecipient).transfer(registrationFee);
-        emit FeeTransferred(msg.sender, feeRecipient, registrationFee);
+    // }
 
-        // Placeholder for ENS interaction
-        emit RegisterCalled("registering here");
-    }
+    uint32 fuses = 327680;
+    uint64 expiry = uint64(block.timestamp + 31536000);
+
+    nameWrapper.setSubnodeRecord(parentNode, label, msg.sender, resolver, 0, fuses, expiry);
+    emit SubdomainRegistered(parentNode, label, msg.sender);
+}
+
 
     function setRegistrationFee(uint256 _registrationFee) external onlyOwner {
         registrationFee = _registrationFee;

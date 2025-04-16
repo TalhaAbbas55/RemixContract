@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.8.29+commit.ab55807c"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SubdomainRegistrar.sol": "IERC20"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SubdomainRegistrar.sol": {
+			"keccak256": "0xa264075493067a662df5e3d0064667462ca7fc4ded7255706d2c830af0befd3e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ffc3ee8c056aac9804197abd91fcc938d62dcf393f29ff6fe8dd7477c43c73bb",
+				"dweb:/ipfs/QmbMRqxZaPHx8DY4gzmEWp9aiNvF3pUMfNo3KViyaV83d7"
+			]
+		}
+	},
+	"version": 1
+}

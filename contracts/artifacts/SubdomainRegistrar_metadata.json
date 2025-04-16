@@ -9,6 +9,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_nameWrapper",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_resolver",
 						"type": "address"
 					},
@@ -36,62 +41,43 @@
 				"inputs": [
 					{
 						"indexed": false,
+						"internalType": "uint256",
+						"name": "msgValue",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "registrationFee",
+						"type": "uint256"
+					}
+				],
+				"name": "LogPaymentDetails",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "parentNode",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
 						"internalType": "string",
 						"name": "label",
 						"type": "string"
 					},
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
-						"name": "sender",
+						"name": "owner",
 						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "fee",
-						"type": "uint256"
 					}
 				],
-				"name": "DebugInfo",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "FeeTransferred",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "message",
-						"type": "string"
-					}
-				],
-				"name": "RegisterCalled",
+				"name": "SubdomainRegistered",
 				"type": "event"
 			},
 			{
@@ -100,6 +86,19 @@
 				"outputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nameWrapper",
+				"outputs": [
+					{
+						"internalType": "contract INameWrapper",
 						"name": "",
 						"type": "address"
 					}
@@ -201,11 +200,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0x8c6a751eb94c6a101f2ff2d135b85aae092900e493e448b055f5aca0f700976d",
+			"keccak256": "0xa264075493067a662df5e3d0064667462ca7fc4ded7255706d2c830af0befd3e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f20ac1a52a51f15e1213ce4149f1c7ccc40e498ba5062cf93398b029369b7f2a",
-				"dweb:/ipfs/QmVGuLhKYfA4mD8GYgsFCBagty8KfiBuSSfaHGjpSbJqpr"
+				"bzz-raw://ffc3ee8c056aac9804197abd91fcc938d62dcf393f29ff6fe8dd7477c43c73bb",
+				"dweb:/ipfs/QmbMRqxZaPHx8DY4gzmEWp9aiNvF3pUMfNo3KViyaV83d7"
 			]
 		}
 	},

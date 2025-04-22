@@ -9,28 +9,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "sender",
+						"name": "operator",
 						"type": "address"
 					},
-					{
-						"internalType": "address",
-						"name": "recipient",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "transferFrom",
-				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "",
+						"name": "approved",
 						"type": "bool"
 					}
 				],
+				"name": "setApprovalForAll",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -48,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SubdomainRegistrar.sol": "IERC20"
+			"contracts/SubdomainRegistrar.sol": "IENSRegistrar"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},

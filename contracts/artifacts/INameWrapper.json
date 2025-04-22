@@ -51,7 +51,8 @@
 		"methodIdentifiers": {
 			"setApprovalForAll(address,bool)": "a22cb465",
 			"setSubnodeOwner(bytes32,string,address,uint32,uint64)": "c658e086",
-			"setSubnodeRecord(bytes32,string,address,address,uint64,uint32,uint64)": "24c1af44"
+			"setSubnodeRecord(bytes32,string,address,address,uint64,uint32,uint64)": "24c1af44",
+			"wrapETH2LD(string,address,uint16,address)": "8cf8b41e"
 		}
 	},
 	"abi": [
@@ -145,6 +146,34 @@
 				}
 			],
 			"name": "setSubnodeRecord",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "label",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "wrappedOwner",
+					"type": "address"
+				},
+				{
+					"internalType": "uint16",
+					"name": "ownerControlledFuses",
+					"type": "uint16"
+				},
+				{
+					"internalType": "address",
+					"name": "resolver",
+					"type": "address"
+				}
+			],
+			"name": "wrapETH2LD",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.29+commit.ab55807c"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -98,6 +98,34 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "label",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "wrappedOwner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "ownerControlledFuses",
+						"type": "uint16"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					}
+				],
+				"name": "wrapETH2LD",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -128,11 +156,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0xa264075493067a662df5e3d0064667462ca7fc4ded7255706d2c830af0befd3e",
+			"keccak256": "0x1df6a8cf7a28e1d4efd0286c61fc2f2308d4350c8448a12644969b84a39cb885",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ffc3ee8c056aac9804197abd91fcc938d62dcf393f29ff6fe8dd7477c43c73bb",
-				"dweb:/ipfs/QmbMRqxZaPHx8DY4gzmEWp9aiNvF3pUMfNo3KViyaV83d7"
+				"bzz-raw://c4ad10aa49b26f359caa1459222f3a308cfde33813495f8a75d4bd8566bbc235",
+				"dweb:/ipfs/QmWa6vn4WLqKNe3JKNufgQQFwk5Xwyi7pohUu5DTajuJPG"
 			]
 		}
 	},

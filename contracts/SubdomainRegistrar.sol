@@ -85,13 +85,6 @@ contract SubdomainRegistrar1 {
         ensRegistrar.setApprovalForAll(address(nameWrapper), true);
     }
 
-    function onERC721Received(
-    address,
-    address,
-    uint256,
-    bytes calldata
-    ) external pure returns (bytes4) {
-        return this.onERC721Received.selector;
-    }
+    
 
 }

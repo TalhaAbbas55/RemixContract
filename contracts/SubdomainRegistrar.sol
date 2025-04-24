@@ -16,7 +16,7 @@ interface IENSRegistrar {
     function setApprovalForAll(address operator, bool approved) external;
 }
 
-contract SubdomainRegistrar {
+contract SubdomainRegistrar1 {
     INameWrapper public nameWrapper;
     IENSRegistrar public ensRegistrar;
     address public resolver;
@@ -84,4 +84,14 @@ contract SubdomainRegistrar {
     function approveWrapperForDomain() external onlyOwner {
         ensRegistrar.setApprovalForAll(address(nameWrapper), true);
     }
+
+    function onERC721Received(
+    address,
+    address,
+    uint256,
+    bytes calldata
+    ) external pure returns (bytes4) {
+        return this.onERC721Received.selector;
+    }
+
 }

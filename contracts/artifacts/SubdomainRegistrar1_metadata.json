@@ -134,6 +134,40 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "label",
 						"type": "string"
@@ -217,7 +251,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SubdomainRegistrar.sol": "SubdomainRegistrar"
+			"contracts/SubdomainRegistrar.sol": "SubdomainRegistrar1"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -232,11 +266,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0x1df6a8cf7a28e1d4efd0286c61fc2f2308d4350c8448a12644969b84a39cb885",
+			"keccak256": "0xdb8efff05712488e5ab27a8f567eb235a1f6e0579780f3d18bcb512c612f788d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c4ad10aa49b26f359caa1459222f3a308cfde33813495f8a75d4bd8566bbc235",
-				"dweb:/ipfs/QmWa6vn4WLqKNe3JKNufgQQFwk5Xwyi7pohUu5DTajuJPG"
+				"bzz-raw://883085f01f8122a769b0c4fc3ac559d565016e018bae82856cb80ed6e0f253da",
+				"dweb:/ipfs/QmdcQDSNeG9j54RVuVN5HfWLD6dDAVqT1kRWMxiTpVPF2D"
 			]
 		}
 	},

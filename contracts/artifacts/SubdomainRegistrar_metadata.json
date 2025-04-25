@@ -134,6 +134,45 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "label",
 						"type": "string"
@@ -197,7 +236,60 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "labelhash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "controller",
+						"type": "address"
+					}
+				],
+				"name": "unwrapDomain",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "label",
+						"type": "string"
+					},
+					{
+						"internalType": "uint16",
+						"name": "ownerControlledFuses",
+						"type": "uint16"
+					}
+				],
 				"name": "wrapDomain",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -232,11 +324,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0x1df6a8cf7a28e1d4efd0286c61fc2f2308d4350c8448a12644969b84a39cb885",
+			"keccak256": "0xfaa9e72ba59597634b6e577f29ee1a0761cb2d3fe49800a00986738296aa741d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c4ad10aa49b26f359caa1459222f3a308cfde33813495f8a75d4bd8566bbc235",
-				"dweb:/ipfs/QmWa6vn4WLqKNe3JKNufgQQFwk5Xwyi7pohUu5DTajuJPG"
+				"bzz-raw://2dd5acbe31e946086e2a2585d1a53813a798faa4e0509bb834553f75931b10fa",
+				"dweb:/ipfs/QmPBzjd5vhkLF43sfRyfDQmtCgx4uxf3HL3N8HY9ia5NuW"
 			]
 		}
 	},

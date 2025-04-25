@@ -134,6 +134,45 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "label",
 						"type": "string"
@@ -197,10 +236,22 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "wrapDomain",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -232,11 +283,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0xb68227d01215a21922385d9caa1720d00182d5fe354ffff2c9a5f274a1a00fe3",
+			"keccak256": "0xadcf06c0227bec5aedacb37b0d29fd67adb706635013ea2ec939be154dec4a89",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a5619b4d6510ad8f8a9f8c1aaccbaa204e66ec8c947f2c0f01d0c2d9382f198a",
-				"dweb:/ipfs/QmWGtqwpFLBZbJCSScy4L9SCeZiPN3qWsU9Xpgtoz1NAov"
+				"bzz-raw://0c127a4cf5438e91fe12d2816b5adef146fd31613c9a7a2c60c9c5b4e8878f14",
+				"dweb:/ipfs/QmQZhr9nrDkGEFdcvbxMMHddEX9aanrQWamWvuQ42txuLD"
 			]
 		}
 	},

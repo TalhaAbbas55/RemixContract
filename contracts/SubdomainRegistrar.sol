@@ -2,10 +2,28 @@
 pragma solidity ^0.8.0;
 
 interface INameWrapper {
-    function setSubnodeOwner(bytes32 parentNode, string calldata label, address owner, uint32 fuses, uint64 expiry) external;
-    function setSubnodeRecord(bytes32 parentNode, string calldata label, address owner, address resolver, uint64 ttl, uint32 fuses, uint64 expiry) external;
+    function setSubnodeOwner(
+        bytes32 parentNode,
+        string calldata label,
+        address owner,
+        uint32 fuses,
+        uint64 expiry
+    ) external;
+
     function setApprovalForAll(address operator, bool approved) external;
-    function wrapETH2LD(string calldata label, address wrappedOwner, uint16 ownerControlledFuses, address resolver) external;
+
+    function unwrapETH2LD(
+        bytes32 labelhash,
+        address registrant,
+        address controller
+    ) external;
+
+    function wrapETH2LD(
+        string calldata label,
+        address wrappedOwner,
+        uint16 ownerControlledFuses,
+        address resolver
+    ) external;
 }
 
 interface IERC20 {
@@ -16,7 +34,7 @@ interface IENSRegistrar {
     function setApprovalForAll(address operator, bool approved) external;
 }
 
-contract SubdomainRegistrar1 {
+contract SubdomainRegistrar {
     INameWrapper public nameWrapper;
     IENSRegistrar public ensRegistrar;
     address public resolver;
@@ -60,10 +78,11 @@ contract SubdomainRegistrar1 {
             payable(feeRecipient).transfer(registrationFee);
         }
 
-        uint32 fuses = 327680;
-        uint64 expiry = uint64(block.timestamp + 31536000);
+        uint32 fuses = 0; // no fuses burned
+        uint64 expiry = uint64(block.timestamp + 31536000); // 1 year
 
-        nameWrapper.setSubnodeRecord(parentNode, label, msg.sender, resolver, 0, fuses, expiry);
+        nameWrapper.setSubnodeOwner(parentNode, label, msg.sender, fuses, expiry);
+
         emit SubdomainRegistered(parentNode, label, msg.sender);
     }
 
@@ -75,16 +94,36 @@ contract SubdomainRegistrar1 {
         feeRecipient = _feeRecipient;
     }
 
-    // 👇 Wrap the domain "talha.eth"
-    function wrapDomain() external onlyOwner {
-        nameWrapper.wrapETH2LD("talha", address(this), 0, resolver);
-    }
-
-    // 👇 Approve NameWrapper contract to take over the domain
     function approveWrapperForDomain() external onlyOwner {
         ensRegistrar.setApprovalForAll(address(nameWrapper), true);
     }
 
-    
+    function wrapDomain(
+        string calldata label,
+        uint16 ownerControlledFuses
+    ) external onlyOwner {
+        nameWrapper.wrapETH2LD(label, address(this), ownerControlledFuses, resolver);
+    }
 
+    function unwrapDomain(
+        bytes32 labelhash,
+        address registrant,
+        address controller
+    ) external onlyOwner {
+        nameWrapper.unwrapETH2LD(labelhash, registrant, controller);
+    }
+
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes calldata
+    ) external pure returns (bytes4) {
+        return this.onERC1155Received.selector;
+    }
+
+    function supportsInterface(bytes4 interfaceId) public pure returns (bool) {
+        return interfaceId == 0x4e2312e0;
+    }
 }

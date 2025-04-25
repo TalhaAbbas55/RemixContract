@@ -63,11 +63,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0xb68227d01215a21922385d9caa1720d00182d5fe354ffff2c9a5f274a1a00fe3",
+			"keccak256": "0xfaa9e72ba59597634b6e577f29ee1a0761cb2d3fe49800a00986738296aa741d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a5619b4d6510ad8f8a9f8c1aaccbaa204e66ec8c947f2c0f01d0c2d9382f198a",
-				"dweb:/ipfs/QmWGtqwpFLBZbJCSScy4L9SCeZiPN3qWsU9Xpgtoz1NAov"
+				"bzz-raw://2dd5acbe31e946086e2a2585d1a53813a798faa4e0509bb834553f75931b10fa",
+				"dweb:/ipfs/QmPBzjd5vhkLF43sfRyfDQmtCgx4uxf3HL3N8HY9ia5NuW"
 			]
 		}
 	},

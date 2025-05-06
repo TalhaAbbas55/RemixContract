@@ -2,32 +2,9 @@
 pragma solidity ^0.8.0;
 
 interface INameWrapper {
-    function setSubnodeOwner(
-        bytes32 parentNode,
-        string calldata label,
-        address owner,
-        uint32 fuses,
-        uint64 expiry
-    ) external;
-
+    function setSubnodeOwner(bytes32 parentNode, string calldata label, address owner, uint32 fuses, uint64 expiry) external;
     function setApprovalForAll(address operator, bool approved) external;
-
-    function unwrapETH2LD(
-        bytes32 labelhash,
-        address registrant,
-        address controller
-    ) external;
-
-    function wrapETH2LD(
-        string calldata label,
-        address wrappedOwner,
-        uint16 ownerControlledFuses,
-        address resolver
-    ) external;
-}
-
-interface IERC20 {
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    function wrapETH2LD(string calldata label, address wrappedOwner, uint16 ownerControlledFuses, address resolver) external;
 }
 
 interface IENSRegistrar {
@@ -45,7 +22,6 @@ contract SubdomainRegistrar {
     address private owner;
     bytes32 private parentNode;
 
-    event LogPaymentDetails(uint256 msgValue, uint256 registrationFee);
     event SubdomainRegistered(bytes32 indexed parentNode, string label, address indexed owner);
 
     constructor(
@@ -55,7 +31,7 @@ contract SubdomainRegistrar {
         bytes32 _parentNode,
         uint256 _registrationFee,
         address _feeRecipient
-    ) payable {
+    ) {
         nameWrapper = INameWrapper(_nameWrapper);
         ensRegistrar = IENSRegistrar(_ensRegistrar);
         resolver = _resolver;
@@ -71,18 +47,16 @@ contract SubdomainRegistrar {
     }
 
     function register(string calldata label) external payable {
-        emit LogPaymentDetails(msg.value, registrationFee);
         require(msg.value >= registrationFee, "Insufficient registration fee");
 
-        if (registrationFee > 0) {
-            payable(feeRecipient).transfer(registrationFee);
+        if (msg.value > 0) {
+            payable(feeRecipient).transfer(msg.value);
         }
 
-        uint32 fuses = 0; // no fuses burned
-        uint64 expiry = uint64(block.timestamp + 31536000); // 1 year
+        uint32 fuses = 327680;
+        uint64 expiry = uint64(block.timestamp + 31536000); // 1 year expiry
 
         nameWrapper.setSubnodeOwner(parentNode, label, msg.sender, fuses, expiry);
-
         emit SubdomainRegistered(parentNode, label, msg.sender);
     }
 
@@ -96,21 +70,6 @@ contract SubdomainRegistrar {
 
     function approveWrapperForDomain() external onlyOwner {
         ensRegistrar.setApprovalForAll(address(nameWrapper), true);
-    }
-
-    function wrapDomain(
-        string calldata label,
-        uint16 ownerControlledFuses
-    ) external onlyOwner {
-        nameWrapper.wrapETH2LD(label, address(this), ownerControlledFuses, resolver);
-    }
-
-    function unwrapDomain(
-        bytes32 labelhash,
-        address registrant,
-        address controller
-    ) external onlyOwner {
-        nameWrapper.unwrapETH2LD(labelhash, registrant, controller);
     }
 
     function onERC1155Received(

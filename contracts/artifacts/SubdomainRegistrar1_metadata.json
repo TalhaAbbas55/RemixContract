@@ -253,6 +253,13 @@
 				],
 				"stateMutability": "pure",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unwrapTalha",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -283,11 +290,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0xadcf06c0227bec5aedacb37b0d29fd67adb706635013ea2ec939be154dec4a89",
+			"keccak256": "0x68e1bb25ffe358382c727ac3a46a38de250d0028b09be889681f4b974920713b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0c127a4cf5438e91fe12d2816b5adef146fd31613c9a7a2c60c9c5b4e8878f14",
-				"dweb:/ipfs/QmQZhr9nrDkGEFdcvbxMMHddEX9aanrQWamWvuQ42txuLD"
+				"bzz-raw://b26a89cea772b5534b3940b27cce313449b5766359e275f26d8829121b53ee94",
+				"dweb:/ipfs/QmQV1cDHQTVEqy6L5JHjqg2VXxaTuN7mkUsgagR4hsYUzQ"
 			]
 		}
 	},

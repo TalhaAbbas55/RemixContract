@@ -59,29 +59,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes32",
-						"name": "labelhash",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "address",
-						"name": "registrant",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "controller",
-						"type": "address"
-					}
-				],
-				"name": "unwrapETH2LD",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "string",
 						"name": "label",
 						"type": "string"
@@ -136,11 +113,11 @@
 	},
 	"sources": {
 		"contracts/SubdomainRegistrar.sol": {
-			"keccak256": "0xfaa9e72ba59597634b6e577f29ee1a0761cb2d3fe49800a00986738296aa741d",
+			"keccak256": "0xe83c05e8edc822636b81bb1cde7c3c09c3ad3c15cdee7963abe92ac3d571c299",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2dd5acbe31e946086e2a2585d1a53813a798faa4e0509bb834553f75931b10fa",
-				"dweb:/ipfs/QmPBzjd5vhkLF43sfRyfDQmtCgx4uxf3HL3N8HY9ia5NuW"
+				"bzz-raw://53bcdecb734d638527f48b65d78d8bf1a01815b7c4729230ef9a57ae70598b71",
+				"dweb:/ipfs/QmWNKBSudVXTMn2e6LvvCvu37E6eSUxmz7Am3opbcgwjP8"
 			]
 		}
 	},
